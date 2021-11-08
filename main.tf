@@ -84,7 +84,7 @@ POLICY
 
 ## Node Policy
 resource "aws_iam_role_policy_attachment" "ms-node-AmazonEKSWorkerNodePolicy" {
-  policy_arn = "arm:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.ms-node.name
 }
 
