@@ -128,7 +128,7 @@ resource "local_file" "kubeconfig" {
 apiVersion: v1
 clusters:
 - cluster:
-    certificate-autority-data: ${aws_eks_cluster.ms-up-running.certificate_authority.0.data}
+    certificate-authority-data: ${aws_eks_cluster.ms-up-running.certificate_authority.0.data}
     server: ${aws_eks_cluster.ms-up-running.endpoint}
   name: ${aws_eks_cluster.ms-up-running.arn}
 contexts:
@@ -136,14 +136,14 @@ contexts:
     cluster: ${aws_eks_cluster.ms-up-running.arn}
     user: ${aws_eks_cluster.ms-up-running.arn}
   name: ${aws_eks_cluster.ms-up-running.arn}
-current-content: ${aws_eks_cluster.ms-up-running.arn}
+current-context: ${aws_eks_cluster.ms-up-running.arn}
 kind: Config
 preferences: {}
 users:
 - name: ${aws_eks_cluster.ms-up-running.arn}
   user:
     exec:
-      apiVersions: client.authentication.k8s.io/v1alpha1
+      apiVersion: client.authentication.k8s.io/v1alpha1
       command: aws-iam-authenticator
       args:
         - "token"
